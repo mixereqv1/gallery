@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template: 
+    "header" 15vh
+    "main" 70vh
+    "footer" 15vh / 1fr;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: orange;
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: lightcoral;
+
+        .overlay__image {
+            width: 550px;
+            height: 450px;
+            object-fit: contain;
+        }
+
+        .image {
+            width: 350px;
+            height: 250px;
+            object-fit: contain;
+            margin: 1em;
+        }
+
+        .previous, .next {
+            height: 2em;
+            width: 5em;
+        }
+    }
+
+    .footer {
+        background: orange;
+    }
+}
