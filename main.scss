@@ -7,9 +7,10 @@
 .container {
     display: grid;
     grid-template: 
-    "header" 15vh
-    "main" 70vh
-    "footer" 15vh / 1fr;
+    "header" 5vh
+    "main" 10vh
+    "container" 80vh
+    "footer" 5vh / 1fr;
 
     .header {
         display: flex;
@@ -24,23 +25,63 @@
         align-items: center;
         background: lightcoral;
 
-        .overlay__image {
-            width: 550px;
-            height: 450px;
-            object-fit: contain;
-        }
-
-        .image {
-            width: 350px;
-            height: 250px;
-            object-fit: contain;
-            margin: 1em;
-        }
-
-        .previous, .next {
+        .previous, 
+        .next {
             height: 2em;
             width: 5em;
+            margin: .3em;
+            border: none;
+            background: #235597;
+            color: #fff;
+            cursor: pointer;
         }
+
+        .hidden {
+            display: none;
+        }
+    }
+
+    .photos {
+        background: cadetblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__img {
+            width: 550px;
+            height: 450px;
+            position: relative;
+            
+            .image {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                transition: opacity .3s ease;
+            }
+
+            .prev__img, 
+            .next__img {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 20%;
+                justify-content: center;
+                align-items: center;
+                display: none;
+                background: rgba(#aaaaaa, .8);
+            }
+
+            .next__img {
+                right: 0;
+            }
+
+            .image:hover ~ .prev__img, 
+            .image:hover ~ .next__img {
+                display: flex;
+            }
+        }
+
     }
 
     .footer {
